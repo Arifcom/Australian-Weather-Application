@@ -45,10 +45,14 @@
             <div class="col-md-3"> </div>
             <div class="col-md-6">
                 <select class="custom-select custom-select-md select2">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <?php
+                    foreach ($data['query'] as $datas) {
+                    ?>
+                    <option selected="">Select a city ...</option>
+                        <option value="{{ $datas->id }}">{{ $datas->name }} with latitude: {{ $datas->latitude }} and longitude: {{ $datas->longitude }}</option>
+                    <?php
+                    }
+                    ?>
                 </select>
                 <br />
                 <br />
