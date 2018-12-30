@@ -8,7 +8,7 @@ class CityController extends Controller
 {
     public function index()
     {
-        $data['query'] = \App\City::get();
+        $data['query'] = \App\City::groupBy('name')->get();
         return view('home', ['data' => $data]);
     }
     
