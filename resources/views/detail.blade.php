@@ -63,10 +63,10 @@
         </div>
         <br />
         <?php
-        }
-        $request = 'http://api.openweathermap.org/data/2.5/weather?q=sydney&appid=610587cc5d3cb7ca56756c9642308387';
+        $request = 'http://api.openweathermap.org/data/2.5/weather?q=' . $datas->name . '&appid=610587cc5d3cb7ca56756c9642308387';
         $response  = file_get_contents($request);
         $json_object  = json_decode($response, true);
+        }
         ?>
         <h3>Weather Condition</h3>
         <br />
