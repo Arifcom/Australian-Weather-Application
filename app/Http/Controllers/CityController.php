@@ -12,8 +12,9 @@ class CityController extends Controller
         return view('home', ['data' => $data]);
     }
     
-    public function show($id)
+    public function show(Request $request)
     {
-    
+        $data['query'] = \App\City::where('id', '=', $request->id)->get();
+        return view('detail', ['data' => $data]);
     }
 }

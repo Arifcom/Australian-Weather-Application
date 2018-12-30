@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'CityController@index');
+
+Route::post('/city/detail', 'CityController@show')->name('city.show');

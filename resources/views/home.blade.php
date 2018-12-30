@@ -44,12 +44,14 @@
         <div class="row">
             <div class="col-md-3"> </div>
             <div class="col-md-6">
-                <select class="custom-select custom-select-md select2">
+                <form action="{{ route('city.show') }}" method="post">
+                @csrf
+                <select class="custom-select custom-select-md select2" name="id">
+                    <option selected="">Select a city ...</option>
                     <?php
                     foreach ($data['query'] as $datas) {
                     ?>
-                    <option selected="">Select a city ...</option>
-                        <option value="{{ $datas->id }}">{{ $datas->name }} with latitude: {{ $datas->latitude }} and longitude: {{ $datas->longitude }}</option>
+                    <option value="{{ $datas->id }}">{{ $datas->name }} with latitude: {{ $datas->latitude }} and longitude: {{ $datas->longitude }}</option>
                     <?php
                     }
                     ?>
@@ -57,6 +59,7 @@
                 <br />
                 <br />
                 <button class="btn btn-primary btn-sm" type="submit">Check</button>
+                </form>
             </div>
             <div class="col-md-3"> </div>
         </div>
