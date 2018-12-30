@@ -33,7 +33,7 @@
       <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Australian Weather Application</a>
+              <div class="nav-link">Australian Weather Application</div>
           </li>
         </ul>
       </div>
@@ -61,9 +61,30 @@
         }
         </script>
         </div>
+        <br />
         <?php
         }
+        $request = 'http://api.openweathermap.org/data/2.5/weather?q=sydney&appid=610587cc5d3cb7ca56756c9642308387';
+        $response  = file_get_contents($request);
+        $json_object  = json_decode($response, true);
         ?>
+        <h3>Weather Condition</h3>
+        <br />
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="list-group" style="text-align:left">
+                    <a href="#" class="list-group-item list-group-item-action">Temperatur          :{{ $json_object['main']['temp'] }}</a>
+                    <a href="#" class="list-group-item list-group-item-action">Pressure            :{{ $json_object['main']['pressure'] }}</a>
+                    <a href="#" class="list-group-item list-group-item-action">Humidity            :{{ $json_object['main']['humidity'] }}</a>
+                    <a href="#" class="list-group-item list-group-item-action">Temperatur Minimum  :{{ $json_object['main']['temp_min'] }}</a>
+                    <a href="#" class="list-group-item list-group-item-action">Temperatur Maximum  :{{ $json_object['main']['temp_max'] }}</a>
+                    <a href="#" class="list-group-item list-group-item-action">Wind Speed          :{{ $json_object['wind']['speed'] }}</a>
+                    <a href="#" class="list-group-item list-group-item-action">Wind Deg          :{{ $json_object['wind']['deg'] }}</a>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

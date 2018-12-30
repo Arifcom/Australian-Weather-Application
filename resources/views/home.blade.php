@@ -27,7 +27,7 @@
       <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Australian Weather Application</a>
+            <div class="nav-link">Australian Weather Application</div>
           </li>
         </ul>
       </div>
@@ -47,7 +47,7 @@
                 <form action="{{ route('city.show') }}" method="post">
                 @csrf
                 <select class="custom-select custom-select-md select2" name="id">
-                    <option selected="">Select a city ...</option>
+                    <option selected disabled>Select a city ...</option>
                     <?php
                     foreach ($data['query'] as $datas) {
                     ?>
